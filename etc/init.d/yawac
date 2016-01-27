@@ -1,0 +1,33 @@
+#!/bin/sh /etc/rc.common
+
+# Yet Another Wifi Auto Connect (YAWAC)
+# https://github.com/mehdichaouch/YAWAC
+
+START=99
+APP=YAWAC
+BIN=/usr/bin/yawac.sh
+ARGS=--daemon
+PID=/var/run/yawac.pid
+
+start() {
+        if [ ! -x $BIN ]; then
+                logger "$APP": no file "$BIN", or not executable
+                exit 1
+        fi
+
+        logger "$APP": start "$BIN"
+        start-stop-daemon -x $BIN -m -p $PID -b -S -- $ARGS
+        exit 0
+}
+
+stop() {
+        if [ ! -f "$PID" ]; then
+                logger "$APP": no pid file "$PID"
+                exit 1
+        fi
+
+        logger "$APP": stop "$BIN" \(PID: $(cat $PID)\)
+        service_kill ${BIN##*/} $PID
+        rm -f $PID
+        exit 0
+}

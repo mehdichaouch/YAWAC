@@ -1,0 +1,45 @@
+#!bin/sh
+
+# Yet Another Wifi Auto Connect (YAWAC)
+# https://github.com/mehdichaouch/YAWAC
+
+# This config file is use by yawac.sh
+
+# Background internet connection checking interval
+ConnCheckTimer=60
+
+# After new network is set, time to wait for network to establish, before checking if it's working
+# If too low the router may be still waiting for the dhcp assignment from the main router, causing the script to discard the network
+NewConnCheckTimer=25
+
+# Set a random MAC each boot
+randMac="0"
+
+# Address to ping to test connectivity
+ping_addr="google.fr"
+
+# FreeWifi parameters
+freewifi_ssid="FreeWifi"
+freewifi_login=""
+freewifi_password=""
+freewifi_url_auth="https://wifi.free.fr/Auth"
+freewifi_connexion_reussie="CONNEXION AU SERVICE REUSSIE"
+freewifi_timeout=10
+
+# Set the wifi
+
+net1_ssid="MyWifiNetwork1"
+net1_encryption="psk2"
+net1_key="RedRedWine"
+net1_macaddr="11:22:33:44:55:66"
+
+net2_ssid="MyWifiNetwork2"
+net2_encryption="psk"
+net2_key="BigCheese"
+
+net3_ssid="MyWifiNetwork3"
+net3_encryption="wep"
+net3_key="DuRhumDesFemmes"
+
+net4_ssid="FreeWifi"
+net4_encryption="none"
