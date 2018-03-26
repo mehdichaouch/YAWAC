@@ -40,7 +40,7 @@ If all fail, it will trigger the network scan and reconfigure the network.
 
 You should edit the file 
 ```bash
-/etc/yawac/config
+/etc/config/yawac
 ```
 
 The order in that file makes a difference: YAWAC will parse the file and configure the first network found.
